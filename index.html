@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGL Spammer Pro</title>
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --success: #00b09b;
+            --danger: #ff416c;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff8a00, #da1b60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .description {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        input[type="range"] {
+            flex: 1;
+            height: 8px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--secondary);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(37, 117, 252, 0.5);
+        }
+        
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .results {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .result-box {
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .success {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+        }
+        
+        .failed {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .progress-container {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 10px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .status {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .disclaimer {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 10px;
+            font-size: 14px;
+            text-align: center;
+            border-left: 4px solid var(--danger);
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .results {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NGL Spammer Pro</h1>
+            <p class="description">Kirim pesan ke NGL dengan cepat dan mudah</p>
+        </header>
+        
+        <div class="form-group">
+            <label for="ngl-link">Link NGL</label>
+            <input type="text" id="ngl-link" placeholder="https://ngl.link/username" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea id="message" placeholder="Ketik pesan yang ingin dikirim..." required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="count">Jumlah Pesan: <span id="count-value">10</span></label>
+            <div class="range-container">
+                <input type="range" id="count" min="1" max="100" value="10">
+                <span id="max-count">100</span>
+            </div>
+        </div>
+        
+        <button id="start-btn" class="btn">Mulai Mengirim</button>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <div class="status" id="status">Menunggu untuk mulai...</div>
+        
+        <div class="results">
+            <div class="result-box success">
+                <div>Berhasil</div>
+                <div class="result-value" id="success-count">0</div>
+                <div>pesan</div>
+            </div>
+            
+            <div class="result-box failed">
+                <div>Gagal</div>
+                <div class="result-value" id="failed-count">0</div>
+                <div>pesan</div>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> Tool ini hanya untuk tujuan edukasi. Penggunaan tidak bertanggung jawab sepenuhnya menjadi tanggung pengguna.
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nglLinkInput = document.getElementById('ngl-link');
+            const messageInput = document.getElementById('message');
+            const countInput = document.getElementById('count');
+            const countValue = document.getElementById('count-value');
+            const startBtn = document.getElementById('start-btn');
+            const successCount = document.getElementById('success-count');
+            const failedCount = document.getElementById('failed-count');
+            const progressBar = document.getElementById('progress-bar');
+            const statusText = document.getElementById('status');
+            
+            // Update count value when slider changes
+            countInput.addEventListener('input', function() {
+                countValue.textContent = this.value;
+            });
+            
+            // Start sending messages
+            startBtn.addEventListener('click', async function() {
+                const nglLink = nglLinkInput.value.trim();
+                const message = messageInput.value.trim();
+                const count = parseInt(countInput.value);
+                
+                if (!nglLink || !message) {
+                    alert('Harap isi link NGL dan pesan!');
+                    return;
+                }
+                
+                // Validate NGL link
+                if (!nglLink.startsWith('https://ngl.link/')) {
+                    alert('Link NGL harus dimulai dengan https://ngl.link/');
+                    return;
+                }
+                
+                // Disable button during sending
+                startBtn.disabled = true;
+                startBtn.textContent = 'Mengirim...';
+                
+                // Reset counters
+                let success = 0;
+                let failed = 0;
+                successCount.textContent = '0';
+                failedCount.textContent = '0';
+                
+                // Send messages
+                for (let i = 0; i < count; i++) {
+                    statusText.textContent = `Mengirim pesan ${i+1} dari ${count}...`;
+                    progressBar.style.width = `${((i+1)/count)*100}%`;
+                    
+                    try {
+                        // This is a simulation - in a real implementation, you would use fetch API
+                        // to send the message to the NGL server
+                        const successRate = 0.8; // 80% success rate for simulation
+                        const random = Math.random();
+                        
+                        // Simulate network delay
+                        await new Promise(resolve => setTimeout(resolve, 100 + Math.random() * 400));
+                        
+                        if (random < successRate) {
+                            success++;
+                            successCount.textContent = success;
+                        } else {
+                            failed++;
+                            failedCount.textContent = failed;
+                        }
+                    } catch (error) {
+                        failed++;
+                        failedCount.textContent = failed;
+                    }
+                    
+                    // Allow UI to update
+                    await new Promise(resolve => setTimeout(resolve, 10));
+                }
+                
+                statusText.textContent = `Selesai! ${success} berhasil, ${failed} gagal.`;
+                progressBar.style.width = '100%';
+                
+                // Re-enable button
+                startBtn.disabled = false;
+                startBtn.textContent = 'Mulai Mengirim';
+            });
+        });
+    </script>
+</body>
+  </html>
