@@ -3,480 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGL Spammer Pro Ultra</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Secure Access System</title>
     <style>
-        :root {
-            --primary: #6a11cb;
-            --secondary: #2575fc;
-            --success: #00b09b;
-            --danger: #ff416c;
-            --warning: #ff9966;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --card-bg: rgba(255, 255, 255, 0.08);
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: var(--light);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
             min-height: 100vh;
-            padding: 20px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
         
         .container {
-            max-width: 800px;
             width: 100%;
-            margin: 0 auto;
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
         
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #ff8a00, #da1b60, #ff0066);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(255, 0, 102, 0.3);
-        }
-        
-        .description {
-            color: #d8d8d8;
+            text-align: center;
             margin-bottom: 20px;
-            font-size: 1.1rem;
+            color: #e94560;
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         label {
             display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #e0e0e0;
-            display: flex;
-            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
         
-        label i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        input, textarea {
+        input {
             width: 100%;
-            padding: 15px 20px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            background: rgba(0, 0, 0, 0.2);
-            color: white;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
             font-size: 16px;
-            transition: all 0.3s ease;
         }
         
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: rgba(0, 0, 0, 0.3);
-            box-shadow: 0 0 15px rgba(37, 117, 252, 0.3);
+        input:focus {
+            outline: 2px solid #e94560;
         }
         
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .range-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        input[type="range"] {
-            flex: 1;
-            height: 10px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 10px;
-            border: none;
-        }
-        
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: white;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(37, 117, 252, 0.8);
-            border: 2px solid var(--secondary);
-        }
-        
-        .btn {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 16px 25px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 12px;
-            cursor: pointer;
+        button {
             width: 100%;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+            padding: 12px;
+            background: #e94560;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
         }
         
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 117, 252, 0.5);
+        button:hover {
+            background: #c53d54;
         }
         
-        .btn:active {
-            transform: translateY(1px);
-        }
-        
-        .btn:disabled {
-            background: linear-gradient(to right, #555, #777);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .results {
-            margin-top: 30px;
-            background: rgba(0, 0, 0, 0.25);
-            border-radius: 15px;
-            padding: 25px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .result-box {
+        .message {
             text-align: center;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
         }
         
         .success {
-            background: linear-gradient(to right, #00b09b, #96c93d);
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
         }
         
-        .failed {
-            background: linear-gradient(to right, #ff416c, #ff4b2b);
+        .error {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
         }
         
-        .result-value {
-            font-size: 3rem;
-            font-weight: 800;
-            margin: 15px 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        .dashboard {
+            text-align: center;
         }
         
-        .progress-container {
-            margin-top: 25px;
+        .option-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            overflow: hidden;
-            height: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            width: 0%;
-            transition: width 0.5s ease;
-            border-radius: 10px;
-        }
-        
-        .status {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 16px;
-            color: #d8d8d8;
-            padding: 12px;
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.2);
-            border-left: 4px solid var(--secondary);
-        }
-        
-        .disclaimer {
-            margin-top: 30px;
             padding: 20px;
-            background: rgba(255, 0, 0, 0.1);
-            border-radius: 12px;
-            font-size: 14px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .option-card h3 {
+            color: #0fbcf9;
+            margin-bottom: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .otp-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .otp-input {
+            width: 50px;
+            height: 50px;
             text-align: center;
-            border-left: 4px solid var(--danger);
-            line-height: 1.6;
+            font-size: 20px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
         }
         
-        .logo {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #ff8a00, #da1b60);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .logout-btn {
+            background: #3498db;
+            margin-top: 20px;
         }
         
-        .input-hint {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin-top: 5px;
-            display: block;
-        }
-        
-        @media (max-width: 650px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .results {
-                grid-template-columns: 1fr;
-            }
-            
-            .result-value {
-                font-size: 2.5rem;
-            }
-        }
-        
-        .flashing {
-            animation: flash 0.5s infinite alternate;
-        }
-        
-        @keyframes flash {
-            from { opacity: 1; }
-            to { opacity: 0.7; }
+        .logout-btn:hover {
+            background: #2980b9;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <i class="fas fa-paper-plane"></i>
+    <div class="container" id="register-container">
+        <h1>Daftar Akun Baru</h1>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
             </div>
-            <h1>NGL Spammer Ultra</h1>
-            <p class="description">Kirim pesan ke NGL dengan kecepatan tinggi dan tampilan yang memukau</p>
-        </header>
-        
-        <div class="form-group">
-            <label for="ngl-link"><i class="fas fa-link"></i> Link NGL</label>
-            <input type="text" id="ngl-link" placeholder="https://ngl.link/username" required>
-            <span class="input-hint">Pastikan link NGL Anda valid dan diawali dengan "https://ngl.link/"</span>
-        </div>
-        
-        <div class="form-group">
-            <label for="message"><i class="fas fa-comment"></i> Pesan</label>
-            <textarea id="message" placeholder="Ketik pesan yang ingin dikirim..." required></textarea>
-            <span class="input-hint">Pesan akan dikirim persis seperti yang Anda ketik di sini</span>
-        </div>
-        
-        <div class="form-group">
-            <label for="count"><i class="fas fa-list-ol"></i> Jumlah Pesan: <span id="count-value">10</span></label>
-            <div class="range-container">
-                <input type="range" id="count" min="1" max="100" value="10">
-                <span id="max-count">100</span>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
             </div>
-        </div>
-        
-        <button id="start-btn" class="btn">
-            <i class="fas fa-paper-plane"></i> Mulai Mengirim
-        </button>
-        
-        <div class="progress-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        
-        <div class="status" id="status">Siap mengirim. Masukkan link NGL dan pesan Anda.</div>
-        
-        <div class="results">
-            <div class="result-box success">
-                <div><i class="fas fa-check-circle"></i> Berhasil</div>
-                <div class="result-value" id="success-count">0</div>
-                <div>pesan terkirim</div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
             </div>
-            
-            <div class="result-box failed">
-                <div><i class="fas fa-times-circle"></i> Gagal</div>
-                <div class="result-value" id="failed-count">0</div>
-                <div>pesan gagal</div>
+            <div class="form-group">
+                <label for="confirm-password">Konfirmasi Password</label>
+                <input type="password" id="confirm-password" required>
             </div>
+            <button type="submit">Daftar</button>
+        </form>
+        <div id="register-message" class="message hidden"></div>
+    </div>
+
+    <div class="container hidden" id="otp-container">
+        <h1>Verifikasi OTP</h1>
+        <p>Kode OTP telah dikirim ke email Anda. Silakan periksa inbox atau folder spam.</p>
+        <div class="otp-container">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 1)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 2)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 3)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 4)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 5)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 6)">
         </div>
-        
-        <div class="disclaimer">
-            <strong><i class="fas fa-exclamation-triangle"></i> Disclaimer:</strong> Tool ini hanya untuk tujuan edukasi. Penggunaan tidak bertanggung jawab sepenuhnya menjadi tanggung jawab pengguna. Pastikan untuk menggunakan dengan bijak.
+        <button type="button" id="verify-otp" style="margin-top: 20px;">Verifikasi</button>
+        <button type="button" id="resend-otp" style="background: #3498db; margin-top: 10px;">Kirim Ulang OTP</button>
+        <div id="otp-message" class="message hidden"></div>
+    </div>
+
+    <div class="container hidden" id="dashboard-container">
+        <h1>Menu Utama</h1>
+        <div class="dashboard">
+            <div class="option-card" id="spam-option">
+                <h3>Spam NGL</h3>
+                <p>Kirim pesan NGL secara beruntun ke akun yang sama</p>
+            </div>
+            <div class="option-card" id="ddos-option">
+                <h3>DDOS System</h3>
+                <p>Kirim permintaan untuk melumpuhkan website target</p>
+            </div>
+            <button class="logout-btn" id="logout-btn">Logout</button>
         </div>
     </div>
 
+    <div class="container hidden" id="spam-container">
+        <h1>Spam NGL</h1>
+        <form id="spam-form">
+            <div class="form-group">
+                <label for="ngl-link">Link NGL</label>
+                <input type="url" id="ngl-link" placeholder="https://ngl.link/username" required>
+            </div>
+            <div class="form-group">
+                <label for="spam-message">Pesan</label>
+                <input type="text" id="spam-message" placeholder="Pesan yang ingin dikirim" required>
+            </div>
+            <button type="submit">Kirim</button>
+        </form>
+        <div id="spam-message" class="message hidden"></div>
+        <button style="margin-top: 20px; background: #3498db;" id="back-from-spam">Kembali ke Menu</button>
+    </div>
+
+    <div class="container hidden" id="ddos-container">
+        <h1>DDOS System</h1>
+        <form id="ddos-form">
+            <div class="form-group">
+                <label for="target-website">Website Target</label>
+                <input type="url" id="target-website" placeholder="https://example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="attack-type">Tipe Serangan</label>
+                <select id="attack-type" style="width: 100%; padding: 12px 15px; border-radius: 8px; background: rgba(255, 255, 255, 0.15); color: #fff; border: none; margin-top: 5px;">
+                    <option value="troll">Troll (Ubah jadi foto Spongebob)</option>
+                    <option value="serious">Serius (Lumpuhkan website)</option>
+                </select>
+            </div>
+            <button type="submit" style="background: #e74c3c;">Luncurkan Serangan</button>
+        </form>
+        <div id="ddos-message" class="message hidden"></div>
+        <button style="margin-top: 20px; background: #3498db;" id="back-from-ddos">Kembali ke Menu</button>
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const nglLinkInput = document.getElementById('ngl-link');
-            const messageInput = document.getElementById('message');
-            const countInput = document.getElementById('count');
-            const countValue = document.getElementById('count-value');
-            const startBtn = document.getElementById('start-btn');
-            const successCount = document.getElementById('success-count');
-            const failedCount = document.getElementById('failed-count');
-            const progressBar = document.getElementById('progress-bar');
-            const statusText = document.getElementById('status');
+        // Data sementara untuk simulasi
+        let generatedOTP = '';
+        let userData = {};
+        
+        // Elemen DOM
+        const registerContainer = document.getElementById('register-container');
+        const otpContainer = document.getElementById('otp-container');
+        const dashboardContainer = document.getElementById('dashboard-container');
+        const spamContainer = document.getElementById('spam-container');
+        const ddosContainer = document.getElementById('ddos-container');
+        
+        // Form dan button
+        const registerForm = document.getElementById('register-form');
+        const verifyOtpBtn = document.getElementById('verify-otp');
+        const resendOtpBtn = document.getElementById('resend-otp');
+        const spamOption = document.getElementById('spam-option');
+        const ddosOption = document.getElementById('ddos-option');
+        const logoutBtn = document.getElementById('logout-btn');
+        const spamForm = document.getElementById('spam-form');
+        const ddosForm = document.getElementById('ddos-form');
+        const backFromSpamBtn = document.getElementById('back-from-spam');
+        const backFromDdosBtn = document.getElementById('back-from-ddos');
+        
+        // Event Listeners
+        registerForm.addEventListener('submit', handleRegister);
+        verifyOtpBtn.addEventListener('click', verifyOTP);
+        resendOtpBtn.addEventListener('click', resendOTP);
+        spamOption.addEventListener('click', showSpamForm);
+        ddosOption.addEventListener('click', showDdosForm);
+        logoutBtn.addEventListener('click', logout);
+        spamForm.addEventListener('submit', handleSpam);
+        ddosForm.addEventListener('submit', handleDdos);
+        backFromSpamBtn.addEventListener('click', backToDashboard);
+        backFromDdosBtn.addEventListener('click', backToDashboard);
+        
+        // Fungsi untuk registrasi
+        function handleRegister(e) {
+            e.preventDefault();
             
-            // Update count value when slider changes
-            countInput.addEventListener('input', function() {
-                countValue.textContent = this.value;
-            });
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
             
-            // Validate NGL link format
-            function isValidNglLink(link) {
-                return link.startsWith('https://ngl.link/') && link.length > 18;
+            // Validasi
+            if (password !== confirmPassword) {
+                showMessage('register-message', 'Password dan konfirmasi password tidak cocok', 'error');
+                return;
             }
             
-            // Start sending messages
-            startBtn.addEventListener('click', async function() {
-                const nglLink = nglLinkInput.value.trim();
-                const message = messageInput.value.trim();
-                const count = parseInt(countInput.value);
-                
-                if (!nglLink || !message) {
-                    statusText.innerHTML = '<i class="fas fa-exclamation-circle"></i> Harap isi link NGL dan pesan!';
-                    statusText.style.borderLeftColor = '#ff416c';
-                    return;
-                }
-                
-                // Validate NGL link
-                if (!isValidNglLink(nglLink)) {
-                    statusText.innerHTML = '<i class="fas fa-exclamation-circle"></i> Link NGL harus dimulai dengan https://ngl.link/ dan memiliki username';
-                    statusText.style.borderLeftColor = '#ff416c';
-                    return;
-                }
-                
-                // Disable button during sending
-                startBtn.disabled = true;
-                startBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-                statusText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memulai pengiriman pesan...';
-                statusText.style.borderLeftColor = '#2575fc';
-                
-                // Reset counters
-                let success = 0;
-                let failed = 0;
-                successCount.textContent = '0';
-                failedCount.textContent = '0';
-                progressBar.style.width = '0%';
-                
-                // Extract username from NGL link
-                const username = nglLink.split('/').pop();
-                
-                // Send messages
-                for (let i = 0; i < count; i++) {
-                    statusText.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Mengirim pesan ${i+1} dari ${count}...`;
-                    progressBar.style.width = `${((i+1)/count)*100}%`;
-                    
-                    try {
-                        // In a real implementation, this would be a fetch request to NGL's server
-                        // Simulate API request to NGL
-                        const response = await simulateNglRequest(username, message);
-                        
-                        if (response.success) {
-                            success++;
-                            successCount.textContent = success;
-                            successCount.classList.add('flashing');
-                            setTimeout(() => successCount.classList.remove('flashing'), 500);
-                        } else {
-                            failed++;
-                            failedCount.textContent = failed;
-                            failedCount.classList.add('flashing');
-                            setTimeout(() => failedCount.classList.remove('flashing'), 500);
-                        }
-                    } catch (error) {
-                        failed++;
-                        failedCount.textContent = failed;
-                        failedCount.classList.add('flashing');
-                        setTimeout(() => failedCount.classList.remove('flashing'), 500);
-                    }
-                    
-                    // Allow UI to update
-                    await new Promise(resolve => setTimeout(resolve, 50));
-                }
-                
-                statusText.innerHTML = `<i class="fas fa-check-circle"></i> Selesai! ${success} pesan berhasil, ${failed} pesan gagal.`;
-                statusText.style.borderLeftColor = '#00b09b';
-                progressBar.style.width = '100%';
-                
-                // Re-enable button
-                startBtn.disabled = false;
-                startBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Mulai Mengirim';
-            });
-            
-            // Simulate sending a message to NGL (in a real app, this would be a fetch request)
-            async function simulateNglRequest(username, message) {
-                // Simulate network delay
-                await new Promise(resolve => setTimeout(resolve, 100 + Math.random() * 400));
-                
-                // Simulate response from NGL server (90% success rate)
-                const successRate = 0.9;
-                const random = Math.random();
-                
-                // In a real implementation, this would be the actual fetch code:
-                 *
-                try {
-                    const response = await fetch('https://ngl.link/api/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            username: username,
-                            question: message,
-                            deviceId: 'web',
-                            gameSlug: '',
-                            referrer: ''
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    return { success: data.status === 'sent' };
-                } catch (error) {
-                    return { success: false };
-                }
-                */
-                
-                return { success: random < successRate };
+            if (password.length < 6) {
+                showMessage('register-message', 'Password minimal 6 karakter', 'error');
+                return;
             }
-        });
+            
+            // Simpan data user
+            userData = { username, email, password };
+            
+            // Kirim OTP (simulasi)
+            sendOTP(email);
+            
+            // Tampilkan form OTP
+            registerContainer.classList.add('hidden');
+            otpContainer.classList.remove('hidden');
+        }
+        
+        // Fungsi untuk mengirim OTP (simulasi)
+        function sendOTP(email) {
+            // Generate OTP 6 digit
+            generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+            
+            // Dalam implementasi nyata, ini akan mengirim email melalui server
+            console.log(`OTP untuk ${email}: ${generatedOTP}`);
+            
+            // Tampilkan pesan ke user
+            showMessage('otp-message', `Kode OTP telah dikirim ke ${email}. Untuk demo, OTP adalah: ${generatedOTP}`, 'success');
+        }
+        
+        // Fungsi untuk verifikasi OTP
+        function verifyOTP() {
+            const otpInputs = document.querySelectorAll('.otp-input');
+            const enteredOTP = Array.from(otpInputs).map(input => input.value).join('');
+            
+            if (enteredOTP === generatedOTP) {
+                // OTP benar, arahkan ke dashboard
+                otpContainer.classList.add('hidden');
+                dashboardContainer.classList.remove('hidden');
+            } else {
+                showMessage('otp-message', 'Kode OTP tidak valid', 'error');
+            }
+        }
+        
+        // Fungsi untuk mengirim ulang OTP
+        function resendOTP() {
+            sendOTP(userData.email);
+        }
+        
+        // Fungsi untuk navigasi OTP input
+        function moveToNext(input, nextIndex) {
+            if (input.value.length === 1) {
+                const nextInput = document.querySelectorAll('.otp-input')[nextIndex];
+                if (nextInput) nextInput.focus();
+            }
+        }
+        
+        // Fungsi untuk menampilkan spam form
+        function showSpamForm() {
+            dashboardContainer.classList.add('hidden');
+            spamContainer.classList.remove('hidden');
+        }
+        
+        // Fungsi untuk menampilkan DDoS form
+        function showDdosForm() {
+            dashboardContainer.classList.add('hidden');
+            ddosContainer.classList.remove('hidden');
+        }
+        
+        // Fungsi untuk kembali ke dashboard
+        function backToDashboard() {
+            spamContainer.classList.add('hidden');
+            ddosContainer.classList.add('hidden');
+            dashboardContainer.classList.remove('hidden');
+        }
+        
+        // Fungsi untuk logout
+        function logout() {
+            userData = {};
+            generatedOTP = '';
+            
+            // Reset form
+            registerForm.reset();
+            
+            // Reset OTP inputs
+            document.querySelectorAll('.otp-input').forEach(input => input.value = '');
+            
+            // Kembali ke halaman registrasi
+            dashboardContainer.classList.add('hidden');
+            registerContainer.classList.remove('hidden');
+        }
+        
+        // Fungsi untuk menangani spam form (simulasi)
+        function handleSpam(e) {
+            e.preventDefault();
+            showMessage('spam-message', 'Fitur ini hanya untuk demonstrasi. Aktivitas spam adalah ilegal.', 'error');
+        }
+        
+        // Fungsi untuk menangani DDoS form (simulasi)
+        function handleDdos(e) {
+            e.preventDefault();
+            showMessage('ddos-message', 'Fitur ini hanya untuk demonstrasi. Serangan DDoS adalah aktivitas ilegal.', 'error');
+        }
+        
+        // Fungsi utilitas untuk menampilkan pesan
+        function showMessage(elementId, message, type) {
+            const messageElement = document.getElementById(elementId);
+            messageElement.textContent = message;
+            messageElement.classList.remove('hidden', 'success', 'error');
+            messageElement.classList.add(type);
+            
+            // Sembunyikan pesan setelah 5 detik
+            setTimeout(() => {
+                messageElement.classList.add('hidden');
+            }, 5000);
+        }
     </script>
 </body>
 </html>
